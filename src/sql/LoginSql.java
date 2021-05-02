@@ -1,17 +1,26 @@
 package sql;
 
+import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 public class LoginSql {
-    private String name;
-    private String pwd;
-    private String dbName;
-
-    public LoginSql() {
-
+    static {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-
-    public LoginSql(String name, String pwd, String dbName) {
-        this.name = name;
-        this.pwd = pwd;
-        this.dbName = dbName;
+    public Connection getConnection(){
+        String[] loginX = new String[0];
+        Connection connection=null;
+        try {
+            loginX = SqlConfig.getLoginX();
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + loginX[2], loginX[0], loginX[1]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return connection;
     }
 }

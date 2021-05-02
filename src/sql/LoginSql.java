@@ -17,7 +17,7 @@ public class LoginSql {
         Connection connection=null;
         try {
             loginX = SqlConfig.getLoginX();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + loginX[2], loginX[0], loginX[1]);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "tdb1","xct","1234");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -6,13 +6,12 @@ import java.sql.*;
 
 public class LoginSql {
     public static Connection getConnection(){
-        String[] loginX = new String[0];
+        String[] loginX;
         Connection connection=null;
         try {
-            //Class.forName("com.mysql.jdbc.Driver");
-            DriverManager.registerDriver(new Driver());
             loginX = SqlConfig.getLoginX();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/tdb1","xct","1234");
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+loginX[2], loginX[0], loginX[1]);
         } catch (Exception e) {
             e.printStackTrace();
         }

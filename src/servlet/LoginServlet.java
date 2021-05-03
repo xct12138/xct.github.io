@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         String uname = req.getParameter("uname");
         String password = req.getParameter("password");
 
-        Connection connection = new LoginSql().getConnection();
+        Connection connection = LoginSql.getConnection();
         try {
             PreparedStatement pre = connection.prepareStatement("select * from student where sname=? and pwd=?");
             pre.setString(1,uname);

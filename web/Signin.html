@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>test</title>
-    <link rel="stylesheet" type="text/css" href="loginStyle.css">
+    <link rel="stylesheet" type="text/css" href="signinStyle.css">
 </head>
     <body>
         <div class="container right-panel-active" id=".container">
             <div class="container_from container--signup">
-                <form action="#" class="from" id="form1">
+                <form name="signup" method="post" action="/signup" class="from" id="form1">
                     <h2 class="form_title">注册</h2>
-                    <input type="text" placeholder="User name" class="input">
-                    <input type="password" placeholder="password" class="input">
-                    <input type="email" placeholder="Email" class="input">
-                    <button class="btn">注册</button>
+                    <input class="input" name="upUname" placeholder="User name" type="text">
+                    <input class="input" name="upPassword" placeholder="password" type="password">
+                    <input class="input" name="email" placeholder="Email" type="email">
+                    <input name="tj" class="btn" value="注册" type="submit">
                 </form>
             </div>
             <div class="container_from container--signin">
-                <form action="#" class="from" id="form2">
+                <form name="signin" method="post" action="/signin" class="from" id="form2">
                     <h2 class="form_title">登录</h2>
-                    <input type="text" placeholder="name/email" class="input">
-                    <input type="password" placeholder="password" class="input">
+                    <input class="input" name="uname" placeholder="name/email" type="text">
+                    <input class="input" name="password" placeholder="password" type="password">
                     <a href="#" class="link">忘记密码</a>
-                    <button class="btn">登录</button>
+                    <input name="tj" type="submit" class="btn" value="登录">
                 </form>
             </div>
 
@@ -38,6 +38,11 @@
                 </div>
             </div>
         </div>
+    <form method="post" action="/signin">
+        <input name="uname" type="text">
+        <input name="pwd" type="password">
+        <input name="tj" type="submit" value="提交">
+    </form>
     </body>
-<script src="login.js"></script>
+<script src="signin.js"></script>
 </html>

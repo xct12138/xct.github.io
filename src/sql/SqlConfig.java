@@ -1,7 +1,6 @@
 package sql;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class SqlConfig {
@@ -9,7 +8,7 @@ public class SqlConfig {
         String[] s = new String[3];
         Scanner scanner;
         try {
-            scanner = new Scanner(new FileInputStream("src/sql/SqlLogin.conf"));
+            scanner = new Scanner(Objects.requireNonNull(SqlConfig.class.getClassLoader().getResourceAsStream("sql\\SqlLogin.conf")));
             int i=0;
             while (scanner.hasNext()){
                 String s1 = scanner.nextLine();
@@ -17,7 +16,7 @@ public class SqlConfig {
                     s[i++]=s1;
                 }
             }
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return s;

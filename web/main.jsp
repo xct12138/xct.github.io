@@ -11,10 +11,6 @@
     <title>LogonSuccess</title>
 </head>
 <body>
-    <%
-        if((Boolean)request.getAttribute("result")){
-            out.print("登陆成功");
-        }
-    %>
+    <h1><%out.print("登陆成功");%></h1>
 </body>
 </html>

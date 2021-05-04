@@ -1,7 +1,5 @@
 package sql;
 
-import com.mysql.jdbc.Driver;
-
 import java.sql.*;
 
 public class LoginSql {

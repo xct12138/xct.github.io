@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         try {
             Connection connection = LoginSql.getConnection();
             if (null!=connection) {
-                PreparedStatement pre = connection.prepareStatement("select * from student where sname=? and pwd=?");
+                PreparedStatement pre = connection.prepareStatement("select * from student where sname=? and pwd=password(?)");
                 pre.setString(1, uname);
                 pre.setString(2, password);
                 ResultSet resultSet = pre.executeQuery();
@@ -30,7 +30,8 @@ public class LoginServlet extends HttpServlet {
                     req.getRequestDispatcher("main.jsp").forward(req, resp);
                 } else {
                     req.setAttribute("result", false);
-                    req.getRequestDispatcher("index.jsp").forward(req, resp);
+                    resp.getWriter().print("no");
+                    //req.getRequestDispatcher("login.html").forward(req, resp);
                 }
             }else req.getRequestDispatcher("index.jsp").forward(req, resp);
         } catch (Exception throwables) {

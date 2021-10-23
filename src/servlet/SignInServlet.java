@@ -20,6 +20,7 @@ public class SignInServlet extends HttpServlet {
         }
         String uname = req.getParameter("uname");
         String password = req.getParameter("password");
+        System.out.println("uname"+uname+",password"+password);
 
         try {
             Connection connection = LoginSql.getConnection();
@@ -39,7 +40,8 @@ public class SignInServlet extends HttpServlet {
                 }
             }
             req.getRequestDispatcher(nextPage).forward(req, resp);
-        } catch (Exception throwables) {
+        }
+        catch (Exception throwables) {
             throwables.printStackTrace();
         }
 

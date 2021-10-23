@@ -9,6 +9,7 @@ public class SqlConfig {
         Scanner scanner;
         try {
             scanner = new Scanner(Objects.requireNonNull(SqlConfig.class.getClassLoader().getResourceAsStream("sql\\SqlLogin.conf")));
+//            scanner = new Scanner(new FileInputStream("sql\\SqlLogin.conf"));
             int i=0;
             while (scanner.hasNext()){
                 String s1 = scanner.nextLine();

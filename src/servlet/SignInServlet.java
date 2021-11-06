@@ -1,13 +1,17 @@
 package servlet;
 
-import sql.LoginSql;
 
+import javax.naming.InitialContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.UnsupportedEncodingException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @WebServlet("/signin")
 public class SignInServlet extends HttpServlet {
@@ -20,30 +24,41 @@ public class SignInServlet extends HttpServlet {
         }
         String uname = req.getParameter("uname");
         String password = req.getParameter("password");
-        System.out.println("uname"+uname+",password"+password);
 
+        Connection connection=null;
+        PreparedStatement pre=null;
+        ResultSet resultSet=null;
         try {
-            Connection connection = LoginSql.getConnection();
-            String nextPage="Signin.html";
+            InitialContext initialContext = new InitialContext();
+            DataSource dataSource= (DataSource) initialContext.lookup("java:comp/env/test1");
+            connection = dataSource.getConnection();
+            String nextPage="/source/page/Login.jsp";
             if (null!=connection) {
-                PreparedStatement pre = connection.prepareStatement("select * from student where sname=? and pwd=password(?)");
+                pre = connection.prepareStatement("select * from userbaseinfo where uid=? and pwd=md5(?)");
                 pre.setString(1, uname);
                 pre.setString(2, password);
-                ResultSet resultSet = pre.executeQuery();
+                resultSet = pre.executeQuery();
                 if (resultSet.next()) {
-                    req.setAttribute("result", true);
-                    nextPage="main.jsp";
+                    req.setAttribute("loginResult", true);
+
+                    req.setAttribute("uid",uname);
+                    nextPage="/source/page/main.jsp";
                 } else {
-                    req.setAttribute("result", false);
-                    resp.getWriter().print("no");
-                    nextPage="index.jsp";
+                    req.setAttribute("loginResult", false);
                 }
             }
             req.getRequestDispatcher(nextPage).forward(req, resp);
         }
         catch (Exception throwables) {
             throwables.printStackTrace();
+        }finally {
+            try {
+                if (resultSet!=null) resultSet.close();
+                if (connection!=null) connection.close();
+                if (pre!=null) pre.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
-
     }
 }

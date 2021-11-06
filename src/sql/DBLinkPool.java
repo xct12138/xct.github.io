@@ -1,6 +1,7 @@
-package sql.sql;
+package sql;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -44,6 +45,26 @@ public class DBLinkPool {
     public static void returnConnection(Connection connection){
         if (connection!=null && linkPool_using.remove(connection)){
             linkPool_notUsed.add(connection);
+        }
+    }
+
+    /**
+     * 销毁数据库连接，在容器关闭时调用
+     */
+    public static void closeAll(){
+        for (Connection connection : linkPool_notUsed) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        for (Connection connection : linkPool_using) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package sql.sql;
+package sql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,12 +11,10 @@ public class LinkSQL {
 
     public LinkSQL() {
         this("","","");
-        String[] loginConfig = SQLConfig.getLoginConfig();
-        if (loginConfig!=null) {
-            this.setName(loginConfig[0]);
-            this.setPwd(loginConfig[1]);
-            this.setDatabase(loginConfig[2]);
-        } else throw new NullPointerException();
+        String[] loginConfig = SqlConfig.getLoginX();
+        this.setName(loginConfig[0]);
+        this.setPwd(loginConfig[1]);
+        this.setDatabase(loginConfig[2]);
     }
 
     public LinkSQL(String name, String pwd, String database) {
@@ -52,7 +50,7 @@ public class LinkSQL {
 
     public Connection getConnection(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection("jdbc:mysql://localhost:3306/"+database,name,pwd);
         } catch (Exception e) {
             e.printStackTrace();

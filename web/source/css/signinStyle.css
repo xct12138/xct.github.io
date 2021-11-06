@@ -13,7 +13,7 @@
 }
 body{
     align-items: center;
-    background: url("image/bg1.jpg") no-repeat fixed center;
+    background: url("../../image/bg1.jpg") no-repeat fixed center;
     background-size: cover;
     display: grid;
     height: 100vh;
@@ -92,7 +92,7 @@ body{
 }
 
 .overlay{
-    background: var(--lightbule) url("image/bg1.jpg") no-repeat fixed center;
+    background: var(--lightbule) url("../../image/bg1.jpg") no-repeat fixed center;
     background-size: cover;
     height: 100%;
     left: -100%;

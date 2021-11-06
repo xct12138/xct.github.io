@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+}
+.topnav{
+    width: 100%;
+    height: min-content;
+    overflow: hidden;
+    background: none;
+    position: fixed;
+}
+
+.topnav .topnav-btn{
+    width: 80px;
+    float: left;
+    display: block;
+    color: #222;
+    padding: 20px 12px;
+    margin: 0 0 0 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.topnav a:hover {
+    color: #888;
+}
+
+.topnav #logo{
+    float: left;
+    display: block;
+    margin: 0;
+    width: 65px;
+    height: 40px;
+    color: #303030;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav .search{
+    float: left;
+    margin-left: 8%;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.topnav input[type=text] {
+    width: 40%;
+    background-image: url("/image/search.svg");
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 8px 16px 8px 36px;
+    outline-style: none;
+    border: 1px aquamarine solid;
+    border-radius: 20px;
+    font-size: 17px;
+    transition: width 0.4s ease-in-out;
+}
+
+.topnav input[type=text]::-webkit-input-placeholder{
+    color: #000000;
+}
+.topnav input[type=text]:focus{
+    width: 100%;
+    background-color: white;
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}

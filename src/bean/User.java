@@ -1,6 +1,7 @@
 package bean;
 
 
+
 /**
  * @author xct
  */

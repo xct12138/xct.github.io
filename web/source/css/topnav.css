@@ -1,19 +1,29 @@
 body{
     margin: 0;
+    background:url("/image/mainbackground.jpg") no-repeat fixed center;
+    background-size: cover;
 }
+
+.navbar{
+    width: 100%;
+    height: 60px;
+    margin:0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+}
+
 .topnav{
     width: 100%;
-    height: min-content;
+    height: 60px;
     overflow: hidden;
-    background: none;
-    position: fixed;
+    background: rgba(153, 169, 196, 0.4);
 }
 
 .topnav .topnav-btn{
     width: 80px;
     float: left;
     display: block;
-    color: #222;
+    color: aqua;
     padding: 20px 12px;
     margin: 0 0 0 30px;
     text-align: center;
@@ -22,7 +32,8 @@ body{
 }
 
 .topnav a:hover {
-    color: #888;
+    background-color: rgba(95, 130, 154, 0.3);
+    color: #6bffc4;
 }
 
 .topnav #logo{
@@ -37,19 +48,33 @@ body{
     font-size: 17px;
 }
 
-.topnav .search{
-    float: left;
-    margin-left: 8%;
-    margin-top: 7px;
-    margin-bottom: 7px;
+.navbar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
 }
-
+#user-icon{
+    width: 60px;
+    height: 60px;
+    float: right;
+    padding: 10px;
+}
+.topnav .search{
+    float: right;
+    margin-right: 8%;
+}
 .topnav input[type=text] {
     width: 40%;
     background-image: url("/image/search.svg");
+    background-color: rgba(153, 169, 196, 0.25);
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 8px 16px 8px 36px;
+    padding: 12px 16px 8px 36px;
     outline-style: none;
     border: 1px aquamarine solid;
     border-radius: 20px;
@@ -58,12 +83,12 @@ body{
 }
 
 .topnav input[type=text]::-webkit-input-placeholder{
-    color: #000000;
+    color: #ddd;
 }
 .topnav input[type=text]:focus{
     width: 100%;
-    background-color: white;
     border-color: #66afe9;
+    background-color: rgba(153, 169, 196, 0.40);
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)

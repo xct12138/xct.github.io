@@ -1,5 +1,6 @@
 package servlet;
 
+import bean.User;
 
 import javax.naming.InitialContext;
 import javax.servlet.annotation.WebServlet;
@@ -40,9 +41,15 @@ public class SignInServlet extends HttpServlet {
                 resultSet = pre.executeQuery();
                 if (resultSet.next()) {
                     req.setAttribute("loginResult", true);
+                    User user=new User();
+                    user.setId(resultSet.getInt(1));
+                    user.setUid(resultSet.getString(2));
+                    user.setPwd(resultSet.getString(3));
+                    user.setEmail(resultSet.getString(4));
+                    user.setIcon(resultSet.getString(5));
 
-                    req.setAttribute("uid",uname);
-                    nextPage="/source/page/main.jsp";
+                    req.setAttribute("user",user);
+                    nextPage="index.jsp";
                 } else {
                     req.setAttribute("loginResult", false);
                 }

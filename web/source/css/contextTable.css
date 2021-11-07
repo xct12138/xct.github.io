@@ -1,0 +1,35 @@
+.context-box{
+    margin: 0 auto 4px auto;
+    padding: 70px 0 0;
+    max-width: 70%;
+}
+
+.text-box{
+    background-color: rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.text-box:hover{
+    background-color: rgba(0,0,0,0.5);
+}
+
+.context-text-title{
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    color: #52d7d7;
+}
+.context-text-title:hover{
+    color: #8adada;
+}
+
+
+.context-text{
+    margin-top: 19px;
+    font-size: 16px;
+    color: #dddddd;
+}

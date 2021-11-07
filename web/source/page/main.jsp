@@ -1,4 +1,4 @@
-<%--
+<%@ page import="bean.User" %><%--
   Created by IntelliJ IDEA.
   User: xct
   Date: 2021/5/2
@@ -12,10 +12,10 @@
 </head>
 <body>
     <h1><%
-        boolean result=(boolean)request.getAttribute("loginResult");
-        if (result) {
+        Boolean result=(Boolean)request.getAttribute("loginResult");
+        if (result!=null && result) {
             out.print("登陆成功<br/>");
-            out.print("欢迎"+request.getAttribute("uid"));
+            out.print("欢迎"+((User)request.getAttribute("user")).getUid());
         }
         else out.print("<a href=\"Signin.html\">login</a>");
     %></h1>

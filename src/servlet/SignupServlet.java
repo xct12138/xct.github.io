@@ -1,6 +1,8 @@
 package servlet;
 
 
+import util.Close;
+
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,18 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            req.setCharacterEncoding("utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
         String uname = req.getParameter("upUname");
         String password = req.getParameter("upPassword");
         String email= req.getParameter("email");
@@ -56,13 +54,7 @@ public class SignupServlet extends HttpServlet {
             e.printStackTrace();
         }finally {
             //将连接connection还给连接池
-            try {
-                if (statement1!=null) statement1.close();
-                if (statement!=null) statement.close();
-                if (connection!=null) connection.close();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
+            Close.close(connection,statement,statement1);
         }
     }
 }

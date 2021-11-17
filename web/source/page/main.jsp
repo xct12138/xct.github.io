@@ -11,13 +11,14 @@
     <title>LogonSuccess</title>
 </head>
 <body>
+<jsp:include page="navbar.jsp" flush="true"/>
     <h1><%
         Boolean result=(Boolean)request.getAttribute("loginResult");
         if (result!=null && result) {
             out.print("登陆成功<br/>");
             out.print("欢迎"+((User)request.getAttribute("user")).getUid());
         }
-        else out.print("<a href=\"Signin.html\">login</a>");
+        else out.print("<a href=\"Login.jsp\">login</a>");
     %></h1>
 
 </body>

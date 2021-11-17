@@ -1,4 +1,5 @@
 <%@ page import="bean.User" %>
+<%@ page import="dao.sql.UserQuery" %>
 <%--
   Created by IntelliJ IDEA.
   User: xct
@@ -11,57 +12,15 @@
   <head>
     <link rel="icon" href="image/logo1.png">
     <title>xct</title>
-    <link rel="stylesheet" type="text/css" href="source/css/topnav.css">
+    <link rel="stylesheet" type="text/css" href="source/css/pageBackground.css">
     <link rel="stylesheet" type="text/css" href="source/css/signinform.css">
     <link rel="stylesheet" type="text/css" href="source/css/contextTable.css">
-    <%
-      Boolean result = (Boolean) request.getAttribute("loginResult");
-      User user=(User) request.getAttribute("user");
-    %>
-    <style>
-
-    </style>
   </head>
-  <body>
-
-  <div class="navbar">
-    <ul class="topnav" >
-      <li><a id="logo" href="index.jsp"><img alt="加载失败" src="image/logo1.png"></a> </li>
-      <li><a class="topnav-btn" href="index.jsp">主页</a></li>
-      <li><a class="topnav-btn mainLoginBn" <%if (result!=null && result) out.print("style=\"display:none\"");%>href="source/page/Login.jsp">登录/注册</a></li>
-      <li><a class="topnav-btn" href="#">选项</a></li>
-      <li><a class="topnav-btn" href="#">选项</a></li>
-      <li><a class="topnav-btn" href="#">选项</a></li>
-
-      <%--      <li><a class="topnav-btn" onclick="document.getElementById('signinfrom').style.display='block'" href="#">登录</a></li>--%>
-<%--      <li><a class="topnav-btn" onclick="document.getElementById('signupfrom').style.display='block'" href="#">注册</a></li>--%>
-      <li><a class="topnav-btn" href="" onclick="" style="float: right;margin-right: 3%">关于</a></li>
-      <li><a id="user-icon" href="source/page/main.jsp"
-              <%
-                if (result!=null && result)out.print("style=\"display:block;\"");
-                else out.print("style=\"display:none;\"");
-              %>>
-        <img <%
-          String alt="xct";
-          String imgSrc="";
-          if (user!=null){
-            alt=user.getUid();
-            imgSrc=user.getIcon();
-          }
-          out.print("alt=\""+alt+"\" ");
-          out.print("src=\""+imgSrc+"\"");
-        %>width="50" height="50" style="margin: auto">
-      </a> </li>
-      <li><div class="search">
-        <form method="get" action="#">
-          <label>
-            <input name="search_context" type="text" placeholder="搜索">
-          </label>
-          <!--                <input type="submit">-->
-        </form>
-      </div></li>
-    </ul>
-  </div>
+  <body class="background-d">
+  <%
+    User user=(User) request.getAttribute("user");
+  %>
+  <jsp:include page="/source/page/navbar.jsp" flush="true"/>
   <div class="context-box" >
     <%
       StringBuilder a_href= new StringBuilder("#");
@@ -76,5 +35,6 @@
       }
     %>
   </div>
+  <script type="text/javascript" src="source/javascript/form.js"></script>
   </body>
 </html>

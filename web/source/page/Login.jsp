@@ -11,11 +11,12 @@
     <link rel="icon" href="../../image/logo1.png">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/signinStyle.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/pageBackground.css">
 </head>
-<body>
+<body class="background-c-login">
 <div class="container" id=".container">
     <div class="container_from container--signup">
-        <form method="post" action="${pageContext.request.contextPath}/signup" class="from" id="form1">
+        <form method="post" action="${pageContext.request.contextPath}/signup" class="from" id="form1" onsubmit="return noRepeatSubmit()">
             <h2 class="form_title">注册</h2>
             <label>
                 <input class="input" name="upUname" placeholder="User name" type="text" required>
@@ -37,7 +38,7 @@
         </form>
     </div>
     <div class="container_from container--signin">
-        <form method="post" action="${pageContext.request.contextPath}/signin" class="from" id="form2">
+        <form method="post" action="${pageContext.request.contextPath}/signin" class="from" id="form2" onsubmit="return noRepeatSubmit()">
             <h2 class="form_title">登录</h2>
             <label>
                 <input class="input" name="uname" placeholder="name/email" type="text" required>

@@ -16,4 +16,9 @@
     background:url("/image/bg1.jpg") no-repeat fixed center;
     background-size: cover;
 }
+.background-main{
+    margin: 0;
+    background:url("/image/umain.jfif") no-repeat fixed center;
+    background-size: cover;
+}
 

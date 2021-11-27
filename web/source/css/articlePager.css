@@ -1,0 +1,52 @@
+.tool-bar{
+    float: left;
+    width: 12%;
+    margin: 62px 10px auto;
+
+}
+
+.article-info{
+    width: 100%;
+    height: 100px;
+    padding: 42px;
+    margin: 20px auto auto 2%;
+    position: fixed;
+}
+.article-date{
+    font-size: 16px;
+    color: rgba(227, 227, 227, 0.94);
+    text-align: left;
+}
+
+.form-submit{
+    width: 70px;
+    height: 48px;
+    padding:16px 0;
+    margin: 3% 20px auto 2%;
+    border-bottom: 1px #888888;
+    border-top: 1px #888888;
+    background-color: rgba(129, 129, 129, 0.6);
+    display:block;
+    font-weight:bold;
+    color: #252525;
+    text-align:center;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size: 16px;
+    position: fixed;
+}
+
+.form-submit:hover{
+    background-color: rgba(156, 245, 245, 0.89);
+}
+.context-box{
+    width: 70%;
+    padding: 63px 20px 20px;
+    margin: 0 15% auto;
+    text-align:center;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-size: 16px;
+    color: #cceae4;
+    background-color: rgba(50, 55, 58, 0.62);
+}

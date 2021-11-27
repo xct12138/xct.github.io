@@ -1,9 +1,9 @@
 package bean;
 
 
-
 /**
  * @author xct
+ * JAVABean
  */
 public class User {
 

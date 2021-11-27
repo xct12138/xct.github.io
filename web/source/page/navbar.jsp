@@ -13,7 +13,7 @@
 </head>
 <body>
 <%
-  User user=(User) request.getAttribute("user");
+  User user=(User) request.getSession().getAttribute("user");
 %>
 <div class="navbar">
   <ul class="topnav" >
@@ -24,7 +24,7 @@
     <li><a class="tb-left topnav-btn " href="#">选项</a></li>
     <li><a class="tb-left topnav-btn" href="#">选项</a></li>
     <li><a class="topnav-btn tb-right" href="" onclick="" style="margin-right: 3%">关于</a></li>
-    <li><a class="topnav-btn tb-right" href="${pageContext.request.contextPath}/index.jsp" onclick="exit()" <%if (user==null) out.print("style=\"display:none\"");%>>退出</a> </li>
+    <li><a class="topnav-btn tb-right" href="${pageContext.request.contextPath}/userBehavior/quit" onclick="exit()" <%if (user==null) out.print("style=\"display:none\"");%>>退出</a> </li>
     <li><a id="user-icon" href="${pageContext.request.contextPath}/source/page/main.jsp"<%if (user==null) out.print("style=\"display:none;\"");%>>
       <%out.print("<img");
         String alt="xct";
@@ -33,19 +33,19 @@
           alt=user.getUid();
           imgSrc=user.getIcon();
         }
-        out.print("alt=\""+alt+"\" ");
+        out.print("alt=\""+alt+"\"");
         out.print("src=\""+imgSrc+"\"");
         out.print("width=\"40\" height=\"40\" style=\"margin: auto\">");%>
     </a> </li>
     <li><div class="search">
-      <form method="get" action="${pageContext.request.contextPath}/search" onsubmit="return noRepeatSubmit()">
+      <form method="get" action="${pageContext.request.contextPath}/source/page/search.jsp" onsubmit="return noRepeatSubmit()">
         <label>
           <input name="search_context" type="text" placeholder="搜索">
         </label>
-        <!--                <input type="submit">-->
       </form>
     </div></li>
   </ul>
 </div>
 </body>
+<script src="${pageContext.request.contextPath}/source/javascript/form.js"></script>
 </html>

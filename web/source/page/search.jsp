@@ -16,26 +16,23 @@
 </head>
 <body class="background-c">
 <%
-    User user=(User) request.getAttribute("user");
+    User user=(User) request.getSession().getAttribute("user");
 %>
 <jsp:include page="navbar.jsp" flush="true"/>
 
 <div class="context-box">
     <%
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 5; j++) {
-
+        for (int i = 0; i < 30; i++) {
 
     %>
     <div class="card">
-        <img src="https://static.runoob.com/images/mix/img_avatar.png" alt="Avatar" style="width:100%">
+
         <div class="container">
             <a class="context-text-title"><h4>文章名</h4></a>
             <p>部分内容</p>
         </div>
     </div>
     <%
-            }
         }
     %>
 </div>

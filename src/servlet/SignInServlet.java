@@ -1,7 +1,7 @@
 package servlet;
 
 import bean.User;
-import dao.sql.UserQuery;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,15 +20,10 @@ public class SignInServlet extends HttpServlet {
 
         String nextPage="/source/page/Login.jsp";
 
-        UserQuery userQuery=new UserQuery();
-        User user1 = userQuery.getUser(uname, password);
+        UserService userService=new UserService();
+        User user1 = userService.getUser(uname, password);
         if (user1!=null){
-            for (Cookie cookie : req.getCookies()) {
-                if ("user".equals(cookie.getName())){
-                    cookie.setMaxAge(0);
-                }
-            }
-            req.setAttribute("user",user1);
+            req.getSession().setAttribute("user",user1);
             nextPage="index.jsp";
             Cookie signinCookie=new Cookie("user", uname+"-"+user1.getPwd());
             signinCookie.setMaxAge(60*24*60*60);

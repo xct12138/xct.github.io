@@ -1,4 +1,9 @@
-<%@ page import="bean.User" %><%--
+<%@ page import="bean.User" %>
+<%@ page import="service.ArticleService" %>
+<%@ page import="bean.Article" %>
+<%@ page import="dao.io.ReadText" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: xct
   Date: 2021/5/2
@@ -9,17 +14,34 @@
 <html>
 <head>
     <title>LogonSuccess</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/pageBackground.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/umain.css">
 </head>
-<body>
-<jsp:include page="navbar.jsp" flush="true"/>
-    <h1><%
-        Boolean result=(Boolean)request.getAttribute("loginResult");
-        if (result!=null && result) {
-            out.print("登陆成功<br/>");
-            out.print("欢迎"+((User)request.getAttribute("user")).getUid());
-        }
-        else out.print("<a href=\"Login.jsp\">login</a>");
-    %></h1>
+<body class="background-main">
+<div class="page-top-bar">
+    <jsp:include page="navbar.jsp" flush="true"/>
+</div>
+<%
+    User user=(User) request.getSession().getAttribute("user");
+%>
+
+<div class="user-info-box">
+    <div class="user-icon">
+        <img src="<%=user.getIcon()%>" alt="<%=user.getId()%>">
+    </div>
+    <div class="user-ul">
+        <ul>
+            <li><a class="" href="contextList.jsp?select=my" target="iframe-article">我的</a></li>
+            <li><a class="" href="contextList.jsp?select=collect" target="iframe-article">收藏夹</a></li>
+        </ul>
+    </div>
+</div>
+<div class="context-text-box">
+    <div class="cutoff-rule"></div>
+    <div class="user-article-box">
+        <iframe name="iframe-article" src="contextList.jsp?select=my" frameborder="0" width="99%" height="100%" ></iframe>
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,11 +1,11 @@
 .context-box{
-    margin: 0 auto 4px auto;
-    padding: 70px 0 0;
-    max-width: 70%;
+    margin: 2px auto 4px auto;
+    padding: 0;
+    width: 100%;
 }
 
 .text-box{
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(140, 140, 140, 0.4);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
     height: auto;
@@ -13,7 +13,8 @@
 }
 
 .text-box:hover{
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(200, 222, 222, 0.5);
+
 }
 
 .context-text-title{
@@ -21,34 +22,36 @@
     text-align: center;
     text-decoration: none;
     font-size: 17px;
-    color: #52d7d7;
+    color: #164444;
 }
 .context-text-title:hover{
-    color: #8adada;
+    color: #69e3e3;
 }
 
 
 .context-text{
+    width: 100%;
     margin-top: 19px;
+    text-align:center;
+    text-decoration:none;
+    text-transform:uppercase;
     font-size: 16px;
-    color: #dddddd;
+    color: #009892;
 }
-
+.context-text:hover{
+    color: #000000;
+}
 .card {
     float: left;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
-    width: 18%;
+    width: 100%;
     border-radius: 5px;
-    margin: 1%;
+    margin: 0.2%;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-img {
-    border-radius: 5px 5px 0 0;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
 }
 
 .container {

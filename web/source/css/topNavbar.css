@@ -1,39 +1,4 @@
-.navbar{
-    width: 100%;
-    height: 60px;
-    margin:0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    position: fixed;
-}
 
-.navbar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 0;
-}
-
-.topnav{
-    width: 100%;
-    height: 60px;
-    overflow: hidden;
-    background: rgba(33, 52, 59, 0.8);
-}
-
-.topnav-btn{
-    width: 80px;
-    display: block;
-    color: white;
-    padding: 20px 12px;
-    margin: 0 0 0 30px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-}
 .tb-left{
     float: left;
 }
@@ -41,37 +6,22 @@
     float: right;
     margin: 0;
 }
-.topnav a:hover {
-    background-color: rgba(95, 130, 154, 0.3);
-    color: aquamarine;
-}
 
-.topnav #logo{
-    float: left;
-    display: block;
-    margin: 0;
-    width: 65px;
-    height: 40px;
-    color: #303030;
-    text-align: center;
-    text-decoration: none;
-    font-size: 17px;
-}
 #user-icon{
-    float: right;
     width: 60px;
     height: 60px;
     padding: 10px;
 }
-.topnav .search{
+.search{
+    width: 400px;
     float: right;
-    margin-right: 6%;
+    margin-left: 6%;
     margin-top: 10px;
     align-items: center;
     place-items: center;
 }
-.topnav input[type=text] {
-    width: 40%;
+input[type=text] {
+    width: 10%;
     background-image: url("/image/search.svg");
     background-color: rgba(153, 169, 196, 0.4);
     background-position: 10px 10px;
@@ -84,13 +34,13 @@
     transition: width 0.4s ease-in-out;
 }
 
-.topnav input[type=text]::-webkit-input-placeholder{
-    color: rgb(73, 175, 175);
+input[type=text]::-webkit-input-placeholder{
+    color: rgba(24, 59, 59, 0.89);
 }
-.topnav input[type=text]:focus{
+input[type=text]:focus{
     width: 100%;
     border-color: #66afe9;
-    background-color: rgba(74, 178, 204, 0.42);
+    background-color: rgba(161, 198, 204, 0.62);
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)

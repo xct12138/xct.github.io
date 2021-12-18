@@ -13,6 +13,15 @@ public class User {
     private String email;
     private String icon;
 
+    public User() {
+    }
+
+    public User(String uid, String pwd, String email) {
+        this.uid = uid;
+        this.pwd = pwd;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

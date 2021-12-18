@@ -17,11 +17,10 @@ public class CollectServlet extends HttpServlet {
         User user = (User) req.getSession().getAttribute("user");
         String aid= req.getParameter("aid");
         UserService userService=new UserService();
+        //是否已经收藏，没有则收藏
         boolean collectSuccess=!userService.hasCollected(user,aid);
-
         if (collectSuccess) userService.collect(user,aid);
-
+        //通知具体文章页面
         req.setAttribute("collect",collectSuccess);
-        req.getRequestDispatcher(req.getRequestURI()).forward(req,resp);
     }
 }

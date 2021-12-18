@@ -52,13 +52,12 @@ public class UserService {
                 user.setEmail(resultSet.getString(3));
                 user.setIcon(resultSet.getString(4));
 
-                Close.close(connection,resultSet,statement);
                 return user;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            Close.close(connection,resultSet,statement);
+            Close.close(resultSet,statement,connection);
         }
         return null;
     }
@@ -78,6 +77,8 @@ public class UserService {
             }
         }catch (SQLException throwables) {
             throwables.printStackTrace();
+        }finally {
+            Close.close(statement,connection);
         }
         return i;
     }
@@ -90,12 +91,11 @@ public class UserService {
                 statement.setString(2, article);
                 ResultSet resultSet = statement.executeQuery();
                 if (resultSet.next()) return true;
-                Close.close(connection,statement);
             }
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
-            Close.close(connection,statement);
+            Close.close(statement,connection);
         }
         return false;
     }
@@ -106,12 +106,11 @@ public class UserService {
                 statement.setString(1, user.getUid());
                 statement.setString(2, article);
                 statement.executeUpdate();
-                Close.close(connection,statement);
             }
         }catch (SQLException throwables) {
             throwables.printStackTrace();
         }finally {
-            Close.close(connection,statement);
+            Close.close(statement,connection);
         }
     }
 }

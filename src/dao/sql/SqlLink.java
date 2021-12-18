@@ -7,20 +7,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class SqlLink {
-    private static InitialContext initialContext;
-
-    static {
-        try {
-            initialContext = new InitialContext();
-        } catch (NamingException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     public static Connection getConnection(){
         Connection connection=null;
         try {
+            InitialContext initialContext= new InitialContext();
             DataSource dataSource=(DataSource) initialContext.lookup("java:comp/env/test1");
             connection=dataSource.getConnection();
         } catch (NamingException | SQLException e) {

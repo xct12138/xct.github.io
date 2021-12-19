@@ -1,9 +1,4 @@
 <%@ page import="bean.User" %>
-<%@ page import="bean.Article" %>
-<%@ page import="service.ArticleService" %>
-<%@ page import="java.util.List" %>
-<%@ page import="dao.io.ReadText" %>
-<%@ page import="java.nio.charset.StandardCharsets" %>
 <%--
   Created by IntelliJ IDEA.
   User: xct
@@ -26,7 +21,7 @@
     <style>
       .context-box-main{
         padding: 62px 15% 0;
-        width: 70%;
+        width: 100%;
       }
     </style>
   </head>

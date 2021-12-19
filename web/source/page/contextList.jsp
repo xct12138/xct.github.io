@@ -1,10 +1,6 @@
-<%@ page import="bean.User" %>
-<%@ page import="service.ArticleService" %>
-<%@ page import="bean.Article" %>
-<%@ page import="dao.io.ReadText" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.mysql.cj.util.DnsSrv" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="bean.User" %>
 <%--
   Created by IntelliJ IDEA.
   User: xct
@@ -24,8 +20,8 @@
 <body>
 <div class="context-box">
     <%
-        ArticleService articleService=new ArticleService();
-        List<Article> articles=null;
+        service.ArticleService articleService=new service.ArticleService();
+        List<bean.Article> articles=null;
         String select=request.getParameter("select");
         if (select==null){
             articles=articleService.queryArticle_title("");
@@ -41,8 +37,8 @@
         String title=null;
         String text= null;
         int textLen=300;
-        ReadText readText=new ReadText();
-        for (Article article : articles) {
+        dao.io.ReadText readText=new dao.io.ReadText();
+        for (bean.Article article : articles) {
             title=article.getTitle();
             readText.setTextPath(article.getTextPath());
             text=readText.readSegment(0,textLen);

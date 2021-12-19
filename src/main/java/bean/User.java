@@ -1,11 +1,12 @@
 package bean;
 
-
 /**
- * @author xct
  * JAVABean
+ *
+ * @author xct
  */
 public class User {
+
 
     private int id;
     private String uid;

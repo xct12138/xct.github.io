@@ -19,7 +19,7 @@
       margin:0;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
       position: fixed;
-      background: rgba(192, 192, 192, 0.75);
+      background: rgba(100, 87, 114, 0.8);
 
     }
 
@@ -41,16 +41,16 @@
       padding: 20px 12px;
       margin: 0 0 0 30px;
       text-align: center;
-      text-decoration: none;
       font-size: 16px;
+      color: seashell;
     }
-    .topnav-btn:hover {
+    .topnav-btn:hover,.topnav-btn:active{
       background-color: rgba(64, 90, 108, 0.46);
       color: aquamarine;
     }
   </style>
 </head>
-<body>
+<body >
 <%
   User user=(User) request.getSession().getAttribute("user");
 %>
@@ -59,15 +59,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
   <ul class=" navbar-nav" >
     <li class="nav-item active">
-      <a class="topnav-btn nav-link " href="${pageContext.request.contextPath}/">主页</a></li>
+      <a class="topnav-btn  " href="${pageContext.request.contextPath}/" style="text-decoration: none">主页</a></li>
     <li class="nav-item active">
-      <a class=" topnav-btn nav-link" <%if (user!=null) out.print("style=\"display:none\"");%>href="${pageContext.request.contextPath}/source/page/Login.jsp">登录/注册</a></li>
+      <a class=" topnav-btn" href="#" style="text-decoration: none">选项</a></li>
     <li class="nav-item active">
-      <a class="nav-link topnav-btn" href="#">选项</a></li>
+      <a class=" topnav-btn" href="#" style="text-decoration: none">选项</a></li>
     <li class="nav-item active">
-      <a class="nav-link topnav-btn" href="#">选项</a></li>
-    <li class="nav-item active">
-      <a class="nav-link topnav-btn" href="#">选项</a></li>
+      <a class=" topnav-btn" href="#" style="text-decoration: none">选项</a></li>
     <li class="nav-item active">
       <div class="search">
       <form class="form-inline my-2 my-lg-0" method="get" action="${pageContext.request.contextPath}/source/page/search.jsp" onsubmit="return noRepeatSubmit()">
@@ -77,6 +75,8 @@
       </form>
     </div></li>
     <li class="nav-item active" style="margin-left: 400px"></li>
+    <li class="nav-item active">
+      <a class=" topnav-btn" <%if (user!=null) out.print("style=\"display:none\"");else out.print("style=\"text-decoration: none\"");%>href="${pageContext.request.contextPath}/source/page/Login.jsp">登录</a></li>
     <li class="nav-item active" >
       <a id="user-icon" href="${pageContext.request.contextPath}/source/page/main.jsp"<%if (user==null) out.print("style=\"display:none;\"");%>>
         <%out.print("<img");
@@ -86,16 +86,16 @@
             alt=user.getUid();
             imgSrc=user.getIcon();
           }
-          out.print(" alt=\""+alt+"\"");
+          out.print(" class=\"rounded-circle\" alt=\""+alt+"\"");
           out.print(" src=\""+imgSrc+"\"");
           out.print(" width=\"40\" height=\"40\" style=\"margin: auto\">");%>
       </a>
     </li>
     <li class="nav-item active"  >
-      <a class="topnav-btn nav-link tb-right" href="${pageContext.request.contextPath}/userBehavior/quit" onclick="exit()" <%if (user==null) out.print("style=\"display:none\"");%>>退出</a>
+      <a class="topnav-btn  tb-right" href="${pageContext.request.contextPath}/userBehavior/quit" onclick="exit()" <%if (user==null) out.print("style=\"display:none;text-decoration: none\"");%>>退出</a>
     </li>
     <li class="nav-item active"  >
-      <a class="topnav-btn nav-link tb-right" href="" onclick="" style="margin-right: 3%">关于</a>
+      <a class="topnav-btn tb-right" href="" onclick="" style="margin-right: 3%;text-decoration: none">关于</a>
     </li>
   </ul>
   </div>

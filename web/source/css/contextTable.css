@@ -12,9 +12,9 @@
     overflow: hidden;
 }
 
-.text-box:hover{
-    background-color: rgba(200, 222, 222, 0.5);
-
+.text-box:hover .context-text{
+    color: #000000;
+    background-color: rgba(150, 150, 150, 0.5);
 }
 
 .context-text-title{
@@ -38,20 +38,19 @@
     font-size: 16px;
     color: #009892;
 }
-.context-text:hover{
-    color: #000000;
-}
 .card {
     float: left;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
     transition: 0.3s;
-    width: 100%;
+    width: 70%;
     border-radius: 5px;
-    margin: 0.2%;
+    margin: auto;
+    background-color: rgba(224, 224, 224, 0.9);
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+    background-color: rgb(224, 224, 224);
 }
 
 .container {

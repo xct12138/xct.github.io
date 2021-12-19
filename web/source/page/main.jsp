@@ -1,9 +1,4 @@
-<%@ page import="bean.User" %>
-<%@ page import="service.ArticleService" %>
-<%@ page import="bean.Article" %>
-<%@ page import="dao.io.ReadText" %>
-<%@ page import="java.nio.charset.StandardCharsets" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="bean.User" %><%--
   Created by IntelliJ IDEA.
   User: xct
   Date: 2021/5/2
